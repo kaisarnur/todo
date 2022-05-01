@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}User {{ user_object.username }}{% endblock %}
+
+{% block content %}
+
+    <div class="text-center">
+        <h1>Profile</h1>
+        {% if user == user_object %}
+            <p><a class="text-decoration-none" href="{% url "accounts:edit_profile" user_object.pk %}">Edit profile</a></p>
+            <p><a class="text-decoration-none" href="{% url "accounts:change_password" user_object.pk %}">Change password</a></p>
+        {% endif %}
+        <p><b>User's email: </b>{{ user_object.email }}</p>
+        {% if user_object.name %}
+            <p><b>Name: </b>{{ user_object.name }}</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

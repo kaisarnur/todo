@@ -24,22 +24,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url "webapp:task_create" %}">Add task</a>
                     </li>
-{#                    {% if user.is_authenticated %}#}
-{#                        <li class="nav-item dropdown">#}
-{#                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">#}
-{#                                {{ user }}#}
-{#                            </a>#}
-{#                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                                <a class="dropdown-item" href="{% url "accounts:profile" user.pk %}">Profile</a>#}
-{#                                <div class="dropdown-divider"></div>#}
-{#                                <a class="dropdown-item" href="{% url "accounts:logout" %}">Logout</a>#}
-{#                            </div>#}
-{#                        </li>#}
-{#                    {% else %}#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" href="{% url "accounts:login" %}">Login</a>#}
-{#                        </li>#}
-{#                    {% endif %}#}
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                {{ user }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url "accounts:profile" user.pk %}">Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url "accounts:logout" %}">Logout</a>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "accounts:login" %}">Login</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
