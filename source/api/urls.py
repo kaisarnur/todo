@@ -4,7 +4,7 @@ from rest_framework.routers import SimpleRouter
 
 router = SimpleRouter()
 
-router.register("tasks", views.TaskViewSet)
+router.register("todo", views.TaskViewSet)
 
 app_name = "api"
 
