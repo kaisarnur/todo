@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}ToDo{% endblock %}
+
+{% block content %}
+
+    {% if is_paginated %}
+        {% include "partial/pagination.html" %}
+    {% endif %}
+
+    {% if tasks %}
+        <div class="row row-cols-1 row-cols-md-3">
+            {% for task in tasks %}
+                <div class="col mb-4">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.title }}</h5>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a href="{% url "webapp:task_detail" task.pk %}" class="btn btn-primary" style="width: 100%">See more</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h1 class="text-center">No tasks</h1>
+    {% endif %}
+
+    {% if is_paginated %}
+        {% include "partial/pagination.html" %}
+    {% endif %}
+{% endblock %}

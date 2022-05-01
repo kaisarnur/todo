@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}Updating task{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Updating {{ task.title }}</h1>
+    <form action="{% url "webapp:task_update" task.pk  %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary my-5" style="width: 100%">Update</button>
+    </form>
+{% endblock %}
