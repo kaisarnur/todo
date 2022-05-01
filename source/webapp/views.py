@@ -9,7 +9,6 @@ class IndexView(ListView):
     model = Task
     context_object_name = "tasks"
     template_name = "index.html"
-    ordering = ["-title"]
     paginate_by = 9
 
 
@@ -17,6 +16,9 @@ class TaskCreateView(CreateView):
     model = Task
     form_class = TaskForm
     template_name = "create.html"
+
+    def get_success_url(self):
+        return reverse("webapp:task_detail", kwargs={"task_pk": self.object.pk})
 
 
 class TaskDetailView(DetailView):
