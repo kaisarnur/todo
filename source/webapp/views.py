@@ -2,7 +2,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from django.urls import reverse, reverse_lazy
 
 from webapp.models import Task
-from webapp.forms import TaskForm
+from webapp.forms import TaskForm, TaskCreateForm
 
 
 class IndexView(ListView):
@@ -14,7 +14,7 @@ class IndexView(ListView):
 
 class TaskCreateView(CreateView):
     model = Task
-    form_class = TaskForm
+    form_class = TaskCreateForm
     template_name = "create.html"
 
     def get_success_url(self):

@@ -6,7 +6,7 @@ from webapp.models import Task
 class TaskWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = "__all__"
+        fields = ["id", "title", "description", "execution_time"]
 
 
 class TaskReadSerializer(serializers.ModelSerializer):

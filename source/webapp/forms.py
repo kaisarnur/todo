@@ -11,3 +11,12 @@ class TaskForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'placeholder': 'Select a date and time', 'type': 'datetime'})
         }
 
+
+class TaskCreateForm(forms.ModelForm):
+    class Meta:
+        exclude = ["is_done"]
+        model = Task
+        widgets = {
+            "execution_time": forms.DateTimeInput(
+                attrs={'class': 'form-control', 'placeholder': 'Select a date and time', 'type': 'datetime'})
+        }
